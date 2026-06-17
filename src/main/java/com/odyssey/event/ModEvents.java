@@ -2,9 +2,13 @@ package com.odyssey.event;
 
 import com.odyssey.OdysseyMod;
 import com.odyssey.item.SoulBound;
+import com.odyssey.item.TridentOfTheDeepItem;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,6 +39,23 @@ public class ModEvents {
 
         if (!toSave.isEmpty()) {
             soulBoundStash.put(player.getUUID(), toSave);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingTick(LivingEvent.LivingTickEvent event) {
+        if (!(event.getEntity() instanceof Player player)) return;
+        if (player.level().isClientSide()) return;
+
+        boolean holdingTrident =
+            player.getMainHandItem().getItem() instanceof TridentOfTheDeepItem ||
+            player.getOffhandItem().getItem() instanceof TridentOfTheDeepItem;
+
+        if (holdingTrident) {
+            player.addEffect(new MobEffectInstance(
+                MobEffects.WATER_BREATHING,
+                40, 0, false, false
+            ));
         }
     }
 

@@ -18,6 +18,7 @@ public class ModCreativeTabs {
             .displayItems((params, output) -> {
                 output.accept(ModItems.LAUREL_WREATH.get());
                 output.accept(ModItems.SCROLL_OF_MESSINA.get());
+                output.accept(ModItems.TRIDENT_OF_THE_DEEP.get());
             })
             .build());
 }

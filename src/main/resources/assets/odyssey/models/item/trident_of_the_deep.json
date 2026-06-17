@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "odyssey:item/trident_of_the_deep"
+  }
+}
