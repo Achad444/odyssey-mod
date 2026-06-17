@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "You are a Java and Minecraft Forge code reviewer acting as a silent QA agent. A file was just written or edited. The tool input is: $ARGUMENTS\n\nIf the file is not a .java file, do nothing and exit silently.\n\nIf it IS a .java file, review it for:\n1. Java syntax errors or typos that would cause a compile failure\n2. Incorrect use of the Forge 1.20.1 API (wrong class names, deprecated methods, missing annotations like @Mod or @EventBusSubscriber)\n3. Logic bugs that would cause the mod to crash or behave incorrectly in-game\n4. Missing required registrations (items/blocks not registered with the Forge registry)\n\nIf everything looks correct, output NOTHING — stay completely silent.\n\nIf you find a real issue, output a short message starting with '⚠️ QA:' followed by the file name and a one-sentence description of the problem. Do not explain how to fix it — just flag it clearly. Only report genuine bugs, not style preferences.",
+            "timeout": 30,
+            "statusMessage": "QA reviewing..."
+          }
+        ]
+      }
+    ]
+  }
+}
