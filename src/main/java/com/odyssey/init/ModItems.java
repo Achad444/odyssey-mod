@@ -2,6 +2,7 @@ package com.odyssey.init;
 
 import com.odyssey.OdysseyMod;
 import com.odyssey.item.LaurelWreathItem;
+import com.odyssey.item.ScrollItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,4 +14,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> LAUREL_WREATH =
         ITEMS.register("laurel_wreath", LaurelWreathItem::new);
+
+    public static final RegistryObject<Item> SCROLL_OF_MESSINA =
+        ITEMS.register("scroll_of_messina", ScrollItem::new);
 }

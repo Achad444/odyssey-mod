@@ -17,6 +17,7 @@ public class ModCreativeTabs {
             .icon(() -> new ItemStack(ModItems.LAUREL_WREATH.get()))
             .displayItems((params, output) -> {
                 output.accept(ModItems.LAUREL_WREATH.get());
+                output.accept(ModItems.SCROLL_OF_MESSINA.get());
             })
             .build());
 }
