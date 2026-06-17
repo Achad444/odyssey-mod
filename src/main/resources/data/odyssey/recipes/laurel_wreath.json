@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LGL",
+    "G G",
+    "   "
+  ],
+  "key": {
+    "L": { "item": "minecraft:oak_leaves" },
+    "G": { "item": "minecraft:gold_ingot" }
+  },
+  "result": {
+    "item": "odyssey:laurel_wreath",
+    "count": 1
+  }
+}
